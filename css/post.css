@@ -25,6 +25,7 @@
   justify-content: center;
   margin-top: 10%;
   margin-bottom: 10%;
+  
 }
 #text {
   border: 2px solid rgba(0, 0, 0, 0.653);
@@ -64,10 +65,15 @@
 }
 a{
   text-decoration: none;
+  font-family: 'Font1';
 }
 a:hover{
   color: black;
 }
 a:visited{
   color: #000;
+}
+@font-face{
+  font-family: 'Font1';
+  src: url('assets/BrightOne.ttf') format('truetype');
 }
