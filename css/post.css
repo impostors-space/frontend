@@ -23,5 +23,14 @@
 }
 #text {
   border: 2px solid rgba(0, 0, 0, 0.653);
+  border-radius: 5px;
 
+}
+#comments {
+  border: 2px solid rgba(206, 1, 1, 0.833);  
+  border-radius: 5px; 
+  margin-bottom: 1%; 
+  margin-right: 0%; 
+  margin-left: 0%; 
+  height: 5%;
 }
