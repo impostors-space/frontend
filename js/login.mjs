@@ -1,4 +1,4 @@
-var apiURL = "https://impostors.space/api/v1"
+var apiURL = "https://impostors.api.pauljako.de/api/v1/"
 
 var submitButton = document.getElementById("submit-button")
 
@@ -23,7 +23,7 @@ async function login(uname, psw) {
         displayName: null
     }
 
-    fetch(apiURL + "/auth/signup")
+    fetch(apiURL + "auth/signup")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
