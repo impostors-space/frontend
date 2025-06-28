@@ -41,6 +41,7 @@ a:visited{
   font-family: 'Font1';
   src: url('../assets/IBMPlexSansJP-Bold.ttf');
 }
-body{
-  background-color: lightgrey;
+body {
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
 }

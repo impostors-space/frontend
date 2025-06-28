@@ -3,6 +3,7 @@
   margin-bottom: 1%; 
   font-size: 3vw;
   margin-top: 3%;
+  opacity: 70%;
 }
 
 
@@ -19,6 +20,7 @@
   height: 50%;
   text-align: center;
   background-color: rgb(245, 245, 245);
+  opacity: 90%;
 }
 #post {
   display: flex;
@@ -51,6 +53,7 @@
   width: 100%; 
   margin-top: 1%; 
   font-size: 3vw;
+  opacity: 70%;
 }
 .headbar{
   display: flex;
@@ -94,8 +97,9 @@ a:visited{
   font-family: 'Font1';
   src: url('../assets/IBMPlexSansJP-Bold.ttf');
 }
-body{
-  background-color: lightgrey;
+body {
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
 }
 #play-button {
   margin-top: 0.5%;

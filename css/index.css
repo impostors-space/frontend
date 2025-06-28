@@ -54,15 +54,22 @@ a:visited {
 }
 
 body {
-  background-color: lightgrey;
-}gtft
+  background-image: url('../assets/background.jpg');
+  background-size: cover;
+}
 
 h2 {
   font-family: 'Font1';
+  margin-right: 1%;
+}
+h3{
+    font-family: 'Font1';
+    margin-right: 1%;
 }
 
 p {
   font-family: 'Font1';
+  margin-right: 1%;
 }
 
 #Headline {
@@ -73,7 +80,7 @@ p {
 #play-button {
   margin-top: 0.5%;
   margin-right: 0%;
-  margin-left: 28.5%;
+  margin-left: 28%;
   height: 70%;
   font-family: 'Font1';
   border: none;
