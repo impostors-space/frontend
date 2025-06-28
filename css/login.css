@@ -14,7 +14,8 @@
   background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(255, 0, 0));
 }
 .container {
-    margin-top: 5%;
+    margin-top: 20%;
+    margin-left: 43%;
 }
 img{
   margin-top: 0.3%;
