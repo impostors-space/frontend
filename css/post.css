@@ -22,10 +22,11 @@
 }
 #post {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   font-size: 1.06vw;
   
 }
@@ -103,5 +104,9 @@ body{
   height: 70%;
 }
 #voting{
+  margin-top: 0%;
   text-align: center;
+}
+input{
+  margin-bottom: 0.5%;
 }
