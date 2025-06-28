@@ -50,9 +50,10 @@
   margin-top: 1%; 
   font-size: 3vw;
 }
-#headbar{
+.headbar{
+  display: flex;
   position: absolute;
-  height: 56px;
+  height: 60px;
   top: 0;
   left: 0;
   width: 100%;
@@ -67,6 +68,16 @@
 a{
   text-decoration: none;
   font-family: 'Font1';
+}
+#headText{
+  margin-left: 1%;
+  margin-top: 0.6%;
+}
+img{
+  margin-top: 0.3%;
+  margin-left: 35%;
+  height: 50px;
+  width: 50px;
 }
 a:hover{
   color: black;
