@@ -74,5 +74,5 @@ a:visited{
 }
 @font-face{
   font-family: 'Font1';
-  src: url('assets/BrightOne.ttf') format('truetype');
+  src: url('assets/IBMPlexSansJP-Bold.ttf');
 }
