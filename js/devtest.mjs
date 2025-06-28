@@ -3,13 +3,9 @@ var cookieObject = JSON.parse(document.cookie);
 
 console.log(cookieObject)
 
-var afterBasicPreAuthString = cookieObject.uname + ":" + cookieObject.pswHash;
 
 var requestOptions = {
     method: 'GET',
-    headers: {
-      Authorization: `Basic ${btoa(afterBasicPreAuthString)}`,
-    },
 }
 
 console.log(requestOptions)

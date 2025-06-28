@@ -3,7 +3,6 @@ var apiURL = "https://impostors.api.pauljako.de/api/v1/"
 var submitButton = document.getElementById("submit-button")
 
 
-
 async function getSHA256Hash(message) {
     const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
@@ -21,7 +20,10 @@ async function login(uname, psw) {
         uname: uname,
         pswHash: await getSHA256Hash(psw),
         uuid: "",
-        displayName: ""
+        displayName: "",
+        headers: {
+            Authorization: "",
+        },
     } 
 
     var requestOptions = {
@@ -43,12 +45,15 @@ async function login(uname, psw) {
         .then(data => {
             cookieObject.uuid = data.uuid;
             cookieObject.displayName = data.displayName;
-            console.log(data);
+            var afterBasicPreAuthString = cookieObject.uname + ":" + cookieObject.pswHash;
+            cookieObject.headers.Authorization = `Basic ${btoa(afterBasicPreAuthString)}`,
+            console.log(cookieObject);
+            document.cookie = "data=" + JSON.stringify(cookieObject);
+            location.href = "login.html"
         })
         .catch(error => {
             console.error('Error:', error);
         });
-    document.cookie = JSON.stringify(cookieObject);
 }
 
 submitButton.addEventListener("click", function () {
