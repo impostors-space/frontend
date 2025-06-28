@@ -2,7 +2,11 @@
   width: 100%; 
   margin-bottom: 1%; 
   font-size: 3vw;
+  margin-top: 3%;
 }
+
+
+
 #content {
   width: 300px;
   padding: 10px;
@@ -43,4 +47,27 @@
   width: 100%; 
   margin-top: 1%; 
   font-size: 3vw;
+}
+#headbar{
+  position: absolute;
+  height: 56px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  text-align: center;
+  font-size: 1.5vw;
+  background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(255, 0, 0));
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: black;
+}
+a:visited{
+  color: #000;
 }
