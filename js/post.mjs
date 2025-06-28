@@ -2,6 +2,7 @@ var cookieObject = JSON.parse(atob(document.cookie.replace("data=", "")));
 
 var text = document.getElementById("text");
 var nextButton = document.getElementById("nextButton");
+var commentButton = document.getElementById("commentButton");
 var currentPostId = null;
 
 console.log(cookieObject);
@@ -12,6 +13,38 @@ var requestOptions = {
 };
 
 console.log(requestOptions);
+
+async function commentOnPost() {
+  var comment = document.getElementById("commentField").value;
+
+  if (comment.length === 0) {
+    alert("Please enter a comment");
+    return;
+  }
+
+  var post_uuid = currentPostId;
+
+  await fetch(
+    `https://impostors.api.pauljako.de/api/v1/post/${post_uuid}/comment`,
+    {
+      method: "POST",
+      headers: cookieObject["headers"],
+      body: comment,
+    },
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 async function getPost() {
   var post_uuid = null;
@@ -45,7 +78,7 @@ async function getPost() {
   return post_uuid;
 }
 
-getPost();
+currentPostId = await getPost();
 
 nextButton.addEventListener("click", async function () {
   var new_postId = await getPost();
@@ -63,4 +96,8 @@ nextButton.addEventListener("click", async function () {
   }
 
   currentPostId = new_postId;
+});
+
+commentButton.addEventListener("click", async function () {
+  commentOnPost();
 });
