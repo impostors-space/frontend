@@ -124,3 +124,12 @@ input{
 #down{
   color: red;
 }
+#play-button {
+  margin-top: 0.5%;
+  margin-right: 0%;
+  margin-left: 26%;
+  height: 70%;
+  font-family: 'Font1';
+  border: none;
+  background-color: white;
+}
