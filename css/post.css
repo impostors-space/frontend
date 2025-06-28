@@ -25,6 +25,7 @@
   justify-content: center;
   margin-top: 10%;
   margin-bottom: 10%;
+  
 }
 #text {
   border: 2px solid rgba(0, 0, 0, 0.653);
@@ -61,13 +62,4 @@
   text-align: center;
   font-size: 1.5vw;
   background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(255, 0, 0));
-}
-a{
-  text-decoration: none;
-}
-a:hover{
-  color: black;
-}
-a:visited{
-  color: #000;
 }
