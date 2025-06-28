@@ -7,6 +7,6 @@
 
 }
 body {
-    background: fixed;
+   background: fixed;
    background-image: linear-gradient(to right, rgb(188, 0, 0),rgb(24, 181, 209));
 }
