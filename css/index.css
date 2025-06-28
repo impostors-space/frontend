@@ -3,9 +3,9 @@
     margin-top: 10%;  
     margin-bottom: 10%;  
     width: 100%;
-    background-image: linear-gradient(to right, rgb(24, 181, 209), rgb(188, 0, 0));
+    /*background-image: linear-gradient(to right, rgb(24, 181, 209), rgb(188, 0, 0));*/
 
 }
 body {
-    background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(24, 181, 209));
+    background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(24, 181, 209) );
 }
