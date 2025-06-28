@@ -1,6 +1,8 @@
 #previousButton {
   width: 20%; 
   margin-left: 40%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   margin-right: 40%; 
   margin-bottom: 0.5%;
 }
@@ -24,11 +26,15 @@
 #text {
   border: 2px solid rgba(0, 0, 0, 0.653);
   border-radius: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 
 }
 #comments {
   border: 2px solid rgba(206, 1, 1, 0.833);  
   border-radius: 5px; 
+  margin-top: 1%;
+  margin-bottom: 1%;
   margin-bottom: 1%; 
   margin-right: 0%; 
   margin-left: 0%; 
