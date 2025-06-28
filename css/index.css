@@ -48,6 +48,16 @@ a:visited{
 body{
   background-color: lightgrey;
 }
+h2{
+    font-family: 'Font1';
+}
+p{
+    font-family: 'Font1';
+}
+#Headline{
+    margin-top: 5%;
+    font-size: 400%;
+}
 #play-button {
   margin-top: 0.5%;
   margin-right: 0%;
