@@ -2,17 +2,10 @@
   width: 100%; 
   margin-bottom: 1%; 
   font-size: 3vw;
-<<<<<<< HEAD
   margin-top: 3%;
 }
-#headbar {
-  width: 100%;
-  text-align: center;
-  font-size: 1.5vw;
-=======
-  margin-top: 4%;
->>>>>>> cf7d5bd8a75b911294e20e5715d3587041cce2d6
-}
+
+
 #content {
   width: 300px;
   padding: 10px;
