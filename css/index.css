@@ -1,12 +1,13 @@
 #play-buttoun {
-    font-size: 3vw;
-    margin-top: 10%;  
-    margin-bottom: 10%;  
-    width: 100%;
-    /*background-image: linear-gradient(to right, rgb(24, 181, 209), rgb(188, 0, 0));*/
+  font-size: 3vw;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 100%;
+  /*background-image: linear-gradient(to right, rgb(24, 181, 209), rgb(188, 0, 0));*/
 
 }
-.headbar{
+
+.headbar {
   display: flex;
   position: absolute;
   height: 7%;
@@ -19,45 +20,56 @@
   margin-bottom: 3%;
   text-align: center;
   font-size: 1.5vw;
-  background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(255, 0, 0));
+  background-image: linear-gradient(to right, rgb(188, 0, 0), rgb(255, 0, 0));
 }
-img{
+
+img {
   margin-top: 0.3%;
   margin-left: 35%;
   height: 2.7vw;
   width: 2.7vw;
 }
-#headText{
+
+#headText {
   margin-left: 1%;
   margin-top: 0.6%;
 }
-a{
+
+a {
   text-decoration: none;
   font-family: 'Font1';
 }
-a:hover{
+
+a:hover {
   color: black;
 }
-a:visited{
+
+a:visited {
   color: #000;
 }
-@font-face{
+
+@font-face {
   font-family: 'Font1';
   src: url('../assets/IBMPlexSansJP-Bold.ttf');
 }
-body{
+
+body {
   background-color: lightgrey;
 }
-h2{
-    font-family: 'Font1';
+
+h2 {
+  font-family: 'Font1';
 }
-p{
-    font-family: 'Font1';
+
+p {
+  font-family: 'Font1';
 }
-#Headline{
-    margin-top: 5%;
-    font-size: 400%;
+
+#Headline {
+  margin-top: 5%;
+  font-size: 400%;
 }
+
 #play-button {
   margin-top: 0.5%;
   margin-right: 0%;
