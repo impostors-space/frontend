@@ -5,6 +5,8 @@
   margin-top: 3%;
 }
 
+
+
 #content {
   width: 300px;
   padding: 10px;
@@ -48,7 +50,6 @@
 }
 #headbar{
   position: absolute;
-  padding: 0;
   height: 56px;
   top: 0;
   left: 0;
