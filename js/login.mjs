@@ -60,6 +60,11 @@ async function login(uname, psw) {
     });
 }
 
+function logout() {
+  document.cookie = "data=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  location.href = "index.html";
+}
+
 submitButton.addEventListener("click", function () {
   var unameField = document.getElementById("uname-field");
   var pswField = document.getElementById("psw-field");
