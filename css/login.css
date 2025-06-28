@@ -13,6 +13,9 @@
   font-size: 1.5vw;
   background-image: linear-gradient(to right, rgb(188, 0, 0) , rgb(255, 0, 0));
 }
+.container {
+    margin-top: 5%;
+}
 img{
   margin-top: 0.3%;
   margin-left: 35%;
