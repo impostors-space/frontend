@@ -1,4 +1,4 @@
-#play-button {
+#play-buttoun {
     font-size: 3vw;
     margin-top: 10%;  
     margin-bottom: 10%;  
@@ -47,4 +47,10 @@ a:visited{
 }
 body{
   background-color: lightgrey;
+}
+#play-button {
+  margin-top: 0.5%;
+  margin-right: 0%;
+  margin-left: 20%;
+  height: 70%;
 }
