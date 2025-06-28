@@ -71,11 +71,48 @@ async function getPost() {
         text.style.background = "white";
         text.innerHTML = data.content;
       }
+
+      loadComments(data.comments);
     })
     .catch((error) => {
       console.error("Error:", error);
     });
   return post_uuid;
+}
+
+async function loadComments(commentUuids) {
+  for (var index in commentUuids) {
+    var comment_uuid = commentUuids[index];
+
+    await fetch(
+      `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}`,
+      requestOptions,
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+
+        var comment = document.createElement("div");
+        comment.innerHTML = `Up- and Downvote
+          <br>
+          <p>${data.content}</p>
+          <div id="Buttons">
+          <button id="up">&#10004</button>
+          <button id="down">&#10006</button>
+          </div>
+        `;
+
+        document.getElementById("comments").appendChild(comment);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 }
 
 currentPostId = await getPost();
