@@ -79,6 +79,7 @@ img{
 a{
   text-decoration: none;
   font-family: 'Font1';
+  color: black;
 }
 a:hover{
   color: black;
