@@ -93,3 +93,8 @@ a:visited{
 body{
   background-color: lightgrey;
 }
+#singIn {
+  margin-top: 0.6%;
+  margin-right: 0%;
+  margin-left: 20%;
+}
