@@ -110,3 +110,13 @@ body{
 input{
   margin-bottom: 0.5%;
 }
+#Buttons{
+  flex-direction: row;
+  margin-bottom: 0.5%;
+}
+#up{
+  color: green;
+}
+#down{
+  color: red;
+}
