@@ -52,11 +52,10 @@ a:visited {
   font-family: 'Font1';
   src: url('../assets/IBMPlexSansJP-Bold.ttf');
 }
-<<<<<<< HEAD
 
 body {
   background-color: lightgrey;
-}
+}gtft
 
 h2 {
   font-family: 'Font1';
@@ -69,27 +68,6 @@ p {
 #Headline {
   margin-top: 5%;
   font-size: 400%;
-=======
-body{
-  background-image: url('../assets/background.jpg');
-}
-h2{
-    font-family: 'Font1';
-    margin-right: 1%;
-}
-h3{
-    font-family: 'Font1';
-    margin-right: 1%;
-}
-p{
-    font-family: 'Font1';
-    margin-right: 1%;
-}
-#Headline{
-    margin-top: 10%;
-    margin-right: 2%;
-    font-size: 400%;
->>>>>>> 26525398867e2b3a3ccee1a2ee5d0cc193e5449b
 }
 
 #play-button {
