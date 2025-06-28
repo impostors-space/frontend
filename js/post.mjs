@@ -13,8 +13,13 @@ var requestOptions = {
 
 console.log(requestOptions);
 
-function getPost() {
-  fetch("https://impostors.api.pauljako.de/api/v1/post/random", requestOptions)
+async function getPost() {
+  var post_uuid = null;
+
+  await fetch(
+    "https://impostors.api.pauljako.de/api/v1/post/random",
+    requestOptions,
+  )
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -23,6 +28,8 @@ function getPost() {
     })
     .then((data) => {
       console.log(data);
+
+      post_uuid = data.uuid;
 
       if (data.response_type == "impostor") {
         text.style.background = "red";
@@ -35,10 +42,25 @@ function getPost() {
     .catch((error) => {
       console.error("Error:", error);
     });
+  return post_uuid;
 }
 
 getPost();
 
-nextButton.addEventListener("click", function () {
-  getPost();
+nextButton.addEventListener("click", async function () {
+  var new_postId = await getPost();
+
+  if (new_postId === currentPostId) {
+    new_postId = await getPost();
+  }
+
+  if (new_postId === currentPostId) {
+    new_postId = await getPost();
+  }
+
+  if (new_postId === currentPostId) {
+    new_postId = await getPost();
+  }
+
+  currentPostId = new_postId;
 });
