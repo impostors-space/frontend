@@ -64,10 +64,15 @@
 }
 a{
   text-decoration: none;
+  font-family: 'Font1';
 }
 a:hover{
   color: black;
 }
 a:visited{
   color: #000;
+}
+@font-face{
+  font-family: 'Font1';
+  src: url('assets/BrightOne.ttf') format('truetype');
 }
