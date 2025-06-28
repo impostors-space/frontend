@@ -4,6 +4,7 @@
     margin-bottom: 10%;  
     width: 100%;
 }
-#body {
+body {
+    background: fixed;
     background-color: rgb(188, 0, 0);
 }

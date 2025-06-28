@@ -76,5 +76,8 @@ a:visited{
 }
 @font-face{
   font-family: 'Font1';
-  src: url('assets/IBMPlexSansJP-Bold.ttf');
+  src: url('../assets/IBMPlexSansJP-Bold.ttf');
+}
+body{
+  background-color: lightgray;
 }
