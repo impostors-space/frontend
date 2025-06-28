@@ -1,10 +1,7 @@
 #previousButton {
-  width: 20%; 
-  margin-left: 40%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-right: 40%; 
-  margin-bottom: 0.5%;
+  width: 100%; 
+  margin-bottom: 1%; 
+  font-size: 3vw;
 }
 #content {
   width: 300px;
@@ -22,6 +19,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 #text {
   border: 2px solid rgba(0, 0, 0, 0.653);
@@ -39,4 +38,9 @@
   margin-right: 0%; 
   margin-left: 0%; 
   height: 5%;
+}
+#nextButton {
+  width: 100%; 
+  margin-top: 1%; 
+  font-size: 3vw;
 }
