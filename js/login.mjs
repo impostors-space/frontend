@@ -16,14 +16,24 @@ function getUIIDByUname(uname) {
 }
 
 async function login(uname, psw) {
+
     var cookieObject = {
         uname: uname,
         pswHash: await getSHA256Hash(psw),
-        uuid: null,
-        displayName: null
+        uuid: "",
+        displayName: ""
+    } 
+
+    var requestOptions = {
+        method: 'PUT',
     }
 
-    fetch(apiURL + "auth/signup")
+
+    fetch(apiURL + "auth/signup?" + new URLSearchParams({
+        handle: uname,
+        displayName: uname,
+        passwordHash: cookieObject.pswHash
+    }), requestOptions)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -33,6 +43,7 @@ async function login(uname, psw) {
         .then(data => {
             cookieObject.uuid = data.uuid;
             cookieObject.displayName = data.displayName;
+            console.log(data);
         })
         .catch(error => {
             console.error('Error:', error);

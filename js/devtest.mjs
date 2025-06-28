@@ -8,13 +8,13 @@ var afterBasicPreAuthString = cookieObject.uname + ":" + cookieObject.pswHash;
 var requestOptions = {
     method: 'GET',
     headers: {
-      Authorization: btoa(`Basic ${afterBasicPreAuthString}`),
+      Authorization: `Basic ${btoa(afterBasicPreAuthString)}`,
     },
 }
 
 console.log(requestOptions)
 
-fetch("https://impostors.api.pauljako.de/api/v1/post/next", requestOptions)
+fetch("https://impostors.api.pauljako.de/api/v1/post/random", requestOptions)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
