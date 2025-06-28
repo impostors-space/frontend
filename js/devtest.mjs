@@ -8,9 +8,11 @@ var afterBasicPreAuthString = cookieObject.uname + ":" + cookieObject.pswHash;
 var requestOptions = {
     method: 'GET',
     headers: {
-      Authorization: `Basic ${afterBasicPreAuthString.toString("base64")}`,
+      Authorization: btoa(`Basic ${afterBasicPreAuthString}`),
     },
 }
+
+console.log(requestOptions)
 
 fetch("https://impostors.api.pauljako.de/api/v1/post/next", requestOptions)
     .then(response => {
