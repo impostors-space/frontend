@@ -1,0 +1,22 @@
+#user-info-container {
+    display: grid;
+    grid-template-areas:
+    "picture name"
+    "picture handle";
+}
+#user-info-container > div#user-profile-picture {
+    grid-area: picture;
+}
+
+#user-info-container > div#username {
+    grid-area: name;
+}
+#user-info-container > div#user-handle {
+    grid-area: handle;
+}
+
+#user-handle {
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-top: 0.2em;
+}
