@@ -5,12 +5,43 @@ var nextButton = document.getElementById("nextButton");
 var commentButton = document.getElementById("commentButton");
 var currentPostId = null;
 
-console.log(cookieObject);
-
 var requestOptions = {
   method: "GET",
   headers: cookieObject["headers"],
 };
+
+console.log(cookieObject);
+
+export async function reloadPost() {
+  await fetch(
+    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
+    requestOptions,
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      if (data.response_type == "impostor") {
+        text.style.background = "red";
+        text.innerHTML = "You are an impostor!";
+      } else {
+        text.style.background = "white";
+        text.innerHTML = data.content;
+      }
+
+      loadComments(data.comments);
+
+      currentPostId = data.uuid;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 console.log(requestOptions);
 
@@ -106,10 +137,18 @@ async function getPost() {
   return post_uuid;
 }
 
-async function reloadPost() {
-  await fetch(
-    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
-    requestOptions,
+export function vote(comment_uuid, value) {
+  var upvoteRequestOptions = {
+    method: "PUT",
+    headers: cookieObject["headers"],
+    body: value,
+  };
+
+  upvoteRequestOptions["headers"]["Content-Type"] = "application/json";
+
+  fetch(
+    `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}/vote`,
+    upvoteRequestOptions,
   )
     .then((response) => {
       if (!response.ok) {
@@ -120,19 +159,7 @@ async function reloadPost() {
     .then((data) => {
       console.log(data);
 
-      post_uuid = data.uuid;
-
-      if (data.response_type == "impostor") {
-        text.style.background = "red";
-        text.innerHTML = "You are an impostor!";
-      } else {
-        text.style.background = "white";
-        text.innerHTML = data.content;
-      }
-
-      loadComments(data.comments);
-
-      currentPostId = data.uuid;
+      reloadPost();
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -165,9 +192,9 @@ async function loadComments(commentUuids) {
             <h5>${data.content}</h5>
             <p>Comment by <a href=/user.html?uuid=${data.author.uuid}>@${data.author.handle}</a></p>
             <div id="Buttons">
-              <button onclick="upvote('${data.uuid}')" id="up">&#10004;</button>
-              <button id="neutral('${data.uuid}')">&#9473;</button>
-              <button id="downvote('${data.uuid}')">&#10006;</button>
+              <button onclick="window.vote('${data.uuid}', '1')" id="up">&#10004;</button>
+              <button onclick="window.vote('${data.uuid}', '0')">&#9473;</button>
+              <button onclick="window.vote('${data.uuid}', '-1')">&#10006;</button>
             </div>
             <h6>Score: ${data.score}</h6>
           </div>
@@ -180,3 +207,5 @@ async function loadComments(commentUuids) {
       });
   }
 }
+
+window.vote = vote;
