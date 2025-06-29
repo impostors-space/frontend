@@ -15,7 +15,7 @@ console.log(cookieObject);
 
 async function setPostInner() {
   let response = await fetch(
-    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
+    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}/html`,
     requestOptions,
   );
   if (!response.ok) {
@@ -136,11 +136,11 @@ async function getPost() {
 
       if (data.response_type == "impostor") {
         text.style.background = "red";
-        text.innerHTML = "You are an impostor!";
       } else {
         text.style.background = "white";
-        text.innerHTML = data.content;
       }
+
+      setPostInner();
 
       author.innerHTML = `Written by <a href="/user.html?uuid=${data.author.uuid}">@${data.author.handle}</a>`;
 
@@ -203,7 +203,7 @@ async function loadComments(commentUuids) {
         var comment = document.createElement("div");
 
         let response = await fetch(
-          `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}`,
+          `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}/html`,
           requestOptions,
         );
         if (!response.ok) {
