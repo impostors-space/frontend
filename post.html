@@ -1,40 +1,125 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta charset="utf8">
+        <meta charset="utf8" />
         <title>Posts | Impostor, a new type of social media</title>
-        <link rel="stylesheet" href="css/post.css">
-        <link rel="stylesheet" href="css/overlay.css">
-        <link rel="icon" type="image/x-icon" href="assets/icon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/post.css" />
+        <link rel="stylesheet" href="css/overlay.css" />
+        <link rel="icon" type="image/x-icon" href="assets/icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>
+            var cookieObject = JSON.parse(
+                atob(document.cookie.replace("data=", "")),
+            );
+
+            function upvote(comment_uuid) {
+                var upvoteRequestOptions = {
+                    method: "PUT",
+                    headers: cookieObject["headers"],
+                    body: "1",
+                };
+
+                fetch(
+                    `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}/vote`,
+                    upvoteRequestOptions,
+                )
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+
+                        reloadPost();
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            }
+
+            function downvote(comment_uuid) {
+                var upvoteRequestOptions = {
+                    method: "PUT",
+                    headers: cookieObject["headers"],
+                    body: "-1",
+                };
+
+                fetch(
+                    `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}/vote`,
+                    upvoteRequestOptions,
+                )
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+
+                        reloadPost();
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            }
+
+            function neutral(comment_uuid) {
+                var upvoteRequestOptions = {
+                    method: "PUT",
+                    headers: cookieObject["headers"],
+                    body: "0",
+                };
+
+                fetch(
+                    `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}/vote`,
+                    upvoteRequestOptions,
+                )
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Network response was not ok");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        console.log(data);
+
+                        reloadPost();
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+            }
+        </script>
     </head>
     <body>
-            <div class="headbar">
-            <img src="assets/icon.png" alt="icon">
-            <div id="headText"> <a href="/">Impostor </a>| a new type of social media</div>
+        <div class="headbar">
+            <img src="assets/icon.png" alt="icon" />
+            <div id="headText">
+                <a href="/">Impostor </a>| a new type of social media
+            </div>
         </div>
-        <br>
+        <br />
         <div id="post">
             <div id="content">
-                <h4 id="text">
-                (Post Content)
-                </h4>
-                <br>
-                <p style="text-align: left;">Comments:</p>
-                <div id="comments">
-                </div>
+                <h4 id="text">(Post Content)</h4>
+                <br />
+                <p style="text-align: left">Comments:</p>
+                <div id="comments"></div>
                 <div id="write_comment">
                     You can comment here:
-                    <br>
-                    <input type="text" id="commentField">
-                    <br>
+                    <br />
+                    <input type="text" id="commentField" />
+                    <br />
                     <button id="commentButton">Comment</button>
                 </div>
-                </div>
             </div>
-            <div id="overlay" style="margin-top: 44%; width: 100%">
-                <button onclick="" id="nextButton">&#8681</button>
-            </div>
-        </body>
-        <script type="module" src="js/post.mjs"></script>
+        </div>
+        <div id="overlay" style="margin-top: 44%; width: 100%">
+            <button onclick="" id="nextButton">&#8681;</button>
+        </div>
+    </body>
+    <script type="module" src="js/post.mjs"></script>
 </html>
