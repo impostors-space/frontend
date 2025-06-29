@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Posts | Impostor, a new type of social media</title>
+        <link rel="stylesheet" href="css/post.css">
+        <link rel="icon" type="image/x-icon" href="assets/icon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <script>
+        var chatVal = "";
+        function addComment(){
+            const el = document.querySelector('#inputField');
+            console.log(el.value);
+            chatVal += "You: "+el.value+'<br>';
+            document.getElementById("impText").innerHTML = chatVal;
+            console.log("function executed");
+        }
+        function redirectCorrect(){
+            alert("If you want to confirm your vote please click \"OK\"")
+            location.href = "correct.html"
+        }
+        function redirectIncorrect(){
+            alert("If you want to confirm your vote please click \"OK\"")
+            location.href = "wrong.html"
+        }
+</script>
+    </head>
+    <body>
+        <div class="headbar">
+            <img src="assets/icon.png" alt="icon">
+            <div id="headText"> <a href="https://www.1w6.org/"><a href="index.html">Impostor </a></a>| a new type of social media</div>
+            
+        </div>
+        <br>
+        <button onclick="" id="previousButton">&#8679</button>
+        <div id="post">
+            <div id="content">
+                <div id="text">
+                    <h3>The word is: Airplane</h3>
+                    <br>
+                    <div id="OtherText">
+                    <p>Samuel: travel</p>
+                    <div id="Buttons">
+                    <button id="up" onclick="redirectIncorrect()">&#10004</button>
+                    <button id="down" onclick="redirectIncorrect()">&#10006</button>
+                    </div>
+                    <br>
+                    <p>Paul: Holidays</p>
+                    <div id="Buttons">
+                    <button id="up" onclick="redirectIncorrect()">&#10004</button>
+                    <button id="down" onclick="redirectCorrect()">&#10006</button>
+                    </div>
+                    </div>
+                    <br>
+                    <p></p>
+                    <p id="impText">You didn't write anything yet &#128577;</p>
+                    <br>
+                    
+                </div>
+                    <br>
+                    
+                <div id="comments">
+                    <p>You can comment here:</p>
+                    <br>
+                    <input type="text" id="inputField">
+                    <button onclick="addComment()">Submit</button>
+                </div>
+                </div>
+            </div>
+            
+            <button onclick=""   id="nextButton">&#8681</button>
+        </body>
+        <script type="module" src="js/post.mjs"></script>
+</html>
