@@ -193,10 +193,21 @@ async function loadComments(commentUuids) {
         }
         return response.json();
       })
-      .then((data) => {
+      .then(async (data) => {
         console.log(data);
 
         var comment = document.createElement("div");
+
+
+        let response = await fetch(
+          `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}`,
+          requestOptions
+        )
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        commentHTML = await response.text()
+        
         comment.innerHTML = `
           <div class="comment">
             <br>
