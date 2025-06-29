@@ -1,5 +1,8 @@
 var apiURL = "https://impostors.api.pauljako.de/api/v1/";
 
+var unameField = document.getElementById("uname-field");
+var pswField = document.getElementById("psw-field");
+
 var submitButton = document.getElementById("submit-button");
 
 async function getSHA256Hash(message) {
@@ -40,9 +43,9 @@ async function login(uname, psw) {
     requestOptions,
   )
     .then((response) => {
-      // if (!response.ok) {
-      //  throw new Error("Network response was not ok");
-      // }
+      if (!response.ok & (!response == 409)) {
+        throw new Error("Network response was not ok");
+       }
       return response.json();
     })
     .then((data) => {
@@ -66,8 +69,6 @@ function logout() {
 }
 
 function triggerLogin() {
-  var unameField = document.getElementById("uname-field");
-  var pswField = document.getElementById("psw-field");
 
   login(unameField.value, pswField.value);
 
@@ -75,5 +76,10 @@ function triggerLogin() {
 }
 
 submitButton.addEventListener("click", function () {
+  triggerLogin();
+});
+
+
+pswField.addEventListener("change", function () {
   triggerLogin();
 });
