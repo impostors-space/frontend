@@ -46,7 +46,7 @@ export async function reloadPost() {
       setPostInner()
 
 
-      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}>@${data.author.name}</a>`;
+      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
 
       loadComments(data.comments);
 
@@ -142,6 +142,9 @@ async function getPost() {
         text.style.background = "white";
         text.innerHTML = data.content;
       }
+
+      
+      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
 
       loadComments(data.comments);
     })
