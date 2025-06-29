@@ -12,6 +12,17 @@ var requestOptions = {
 
 console.log(cookieObject);
 
+async function setPostInner() {
+  let response = await fetch(
+    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
+    requestOptions
+  )
+  if (!response.ok) {
+    throw new Error("Network response was not ok")
+  }
+  text.innerHTML = await response.text()
+}
+
 export async function reloadPost() {
   await fetch(
     `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
@@ -27,12 +38,12 @@ export async function reloadPost() {
       console.log(data);
 
       if (data.response_type == "impostor") {
-        text.style.background = "red";
-        text.innerHTML = "You are an impostor!";
+        text.style.background = "red";;
       } else {
         text.style.background = "white";
-        text.innerHTML = data.content;
       }
+      setPostInner()
+
 
       loadComments(data.comments);
 
