@@ -81,6 +81,8 @@ async function getPost() {
 }
 
 async function loadComments(commentUuids) {
+  document.getElementById("comments").innerHTML = "";
+
   for (var index in commentUuids) {
     var comment_uuid = commentUuids[index];
 
@@ -98,12 +100,16 @@ async function loadComments(commentUuids) {
         console.log(data);
 
         var comment = document.createElement("div");
-        comment.innerHTML = `Up- and Downvote
-          <br>
-          <p>${data.content}</p>
-          <div id="Buttons">
-          <button id="up">&#10004</button>
-          <button id="down">&#10006</button>
+        comment.innerHTML = `
+          <div class="comment">
+            <br>
+            <h5>${data.content}</h5>
+            <p>Comment by @${data.author.handle}</p>
+            <div id="Buttons">
+              <button id="up">&#10004;</button>
+              <button id="neutral">&#9473;</button>
+              <button id="down">&#10006;</button>
+              </div>
           </div>
         `;
 
