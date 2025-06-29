@@ -43,9 +43,9 @@ async function login(uname, psw) {
     requestOptions,
   )
     .then((response) => {
-      if ((!response.ok) & (!response == 409)) {
+      if (!response.ok && response != 409) {
         throw new Error("Network response was not ok");
-       }
+      }
       return response.json();
     })
     .then((data) => {
@@ -69,7 +69,6 @@ function logout() {
 }
 
 function triggerLogin() {
-
   login(unameField.value, pswField.value);
 
   window.location = "/post.html";
@@ -79,7 +78,13 @@ submitButton.addEventListener("click", function () {
   triggerLogin();
 });
 
+<<<<<<< HEAD
 
 pswField.addEventListener("change", function () {
   triggerLogin();
 });
+=======
+pswField.addEventListener("submit", function () {
+  triggerLogin();
+});
+>>>>>>> de2f2e6 (hopefully fixed if statement)
