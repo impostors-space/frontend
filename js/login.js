@@ -40,9 +40,9 @@ async function login(uname, psw) {
     requestOptions,
   )
     .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+      // if (!response.ok) {
+      //  throw new Error("Network response was not ok");
+      // }
       return response.json();
     })
     .then((data) => {
@@ -70,6 +70,8 @@ function triggerLogin() {
   var pswField = document.getElementById("psw-field");
 
   login(unameField.value, pswField.value);
+
+  window.location = "/post.html";
 }
 
 submitButton.addEventListener("click", function () {
