@@ -1,11 +1,3 @@
-#previousButton {
-    width: 100%;
-    margin-bottom: 1%;
-    font-size: 3vw;
-    margin-top: 3%;
-    opacity: 70%;
-}
-
 #content {
     width: 300px;
     padding: 10px;
@@ -28,7 +20,7 @@
     justify-content: center;
     margin-top: 5%;
     margin-bottom: 5%;
-    font-size: 1.06vw;
+    font-size: 20px;
 }
 #text {
     border: 2px solid rgba(0, 0, 0, 0.653);
@@ -58,7 +50,7 @@
 #nextButton {
     width: 100%;
     margin-top: 1%;
-    font-size: 3vw;
+    font-size: 50px;
     opacity: 70%;
     margin-bottom: 5%;
 }
@@ -66,12 +58,7 @@
 html {
     height: 100%;
 }
-#play-button {
-    margin-top: 0.5%;
-    margin-right: 0%;
-    margin-left: 20%;
-    height: 70%;
-}
+
 #voting {
     margin-top: 0%;
     text-align: center;

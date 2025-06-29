@@ -10,7 +10,7 @@
     margin-right: auto;
     margin-bottom: 3%;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 25px;
     background-image: linear-gradient(to right, rgb(188, 0, 0), rgb(255, 0, 0));
 }
 
@@ -89,7 +89,7 @@ label {
     margin-top: 1%;
 }
 
-#play-button {
+.play-button {
     /*TODO: Remove the duplicate and conflicting #play-button stylings */
     margin-top: 0.5%;
     margin-right: 0%;
