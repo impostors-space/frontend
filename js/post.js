@@ -1,6 +1,7 @@
 var cookieObject = JSON.parse(atob(document.cookie.replace("data=", "")));
 
 var text = document.getElementById("text");
+var author = document.getElementById("author");
 var nextButton = document.getElementById("nextButton");
 var commentButton = document.getElementById("commentButton");
 var currentPostId = null;
@@ -33,6 +34,8 @@ export async function reloadPost() {
         text.style.background = "white";
         text.innerHTML = data.content;
       }
+
+      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}>@${data.author.name}</a>`;
 
       loadComments(data.comments);
 
