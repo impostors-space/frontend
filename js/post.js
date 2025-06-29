@@ -1,6 +1,7 @@
 var cookieObject = JSON.parse(atob(document.cookie.replace("data=", "")));
 
 var text = document.getElementById("text");
+var author = document.getElementById("author");
 var nextButton = document.getElementById("nextButton");
 var commentButton = document.getElementById("commentButton");
 var currentPostId = null;
@@ -11,6 +12,17 @@ var requestOptions = {
 };
 
 console.log(cookieObject);
+
+async function setPostInner() {
+  let response = await fetch(
+    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
+    requestOptions
+  )
+  if (!response.ok) {
+    throw new Error("Network response was not ok")
+  }
+  text.innerHTML = await response.text()
+}
 
 export async function reloadPost() {
   await fetch(
@@ -27,12 +39,14 @@ export async function reloadPost() {
       console.log(data);
 
       if (data.response_type == "impostor") {
-        text.style.background = "red";
-        text.innerHTML = "You are an impostor!";
+        text.style.background = "red";;
       } else {
         text.style.background = "white";
-        text.innerHTML = data.content;
       }
+      setPostInner()
+
+
+      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
 
       loadComments(data.comments);
 
@@ -129,6 +143,9 @@ async function getPost() {
         text.innerHTML = data.content;
       }
 
+      
+      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
+
       loadComments(data.comments);
     })
     .catch((error) => {
@@ -140,7 +157,7 @@ async function getPost() {
 export function vote(comment_uuid, value) {
   var upvoteRequestOptions = {
     method: "PUT",
-    headers: cookieObject["headers"],
+    headers: { ...cookieObject["headers"] },
     body: value,
   };
 
@@ -182,10 +199,21 @@ async function loadComments(commentUuids) {
         }
         return response.json();
       })
-      .then((data) => {
+      .then(async (data) => {
         console.log(data);
 
         var comment = document.createElement("div");
+
+
+        let response = await fetch(
+          `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}`,
+          requestOptions
+        )
+        if (!response.ok) {
+          throw new Error("Network response was not ok")
+        }
+        commentHTML = await response.text()
+        
         comment.innerHTML = `
           <div class="comment">
             <br>
