@@ -1,5 +1,8 @@
 var apiURL = "https://impostors.api.pauljako.de/api/v1/";
 
+var unameField = document.getElementById("uname-field");
+var pswField = document.getElementById("psw-field");
+
 var submitButton = document.getElementById("submit-button");
 
 async function getSHA256Hash(message) {
@@ -66,8 +69,6 @@ function logout() {
 }
 
 function triggerLogin() {
-  var unameField = document.getElementById("uname-field");
-  var pswField = document.getElementById("psw-field");
 
   login(unameField.value, pswField.value);
 
@@ -77,3 +78,8 @@ function triggerLogin() {
 submitButton.addEventListener("click", function () {
   triggerLogin();
 });
+
+
+pswField.addEventListener("submit", function () {
+  triggerLogin();
+})
