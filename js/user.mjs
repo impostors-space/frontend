@@ -28,7 +28,7 @@ var requestOptions = {
 console.log(requestOptions);
 
 async function reloadUser(user_id) {
-    let response = await fetch(`https://impostors.api.pauljako.de/api/v1/user/${user_handle}`, requestOptions);
+    let response = await fetch(`https://impostors.api.pauljako.de/api/v1/user/${user_id}`, requestOptions);
 
     if (!response.ok) {
         throw new Error("Network response was not ok");
