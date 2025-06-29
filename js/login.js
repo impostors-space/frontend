@@ -78,13 +78,10 @@ submitButton.addEventListener("click", function () {
   triggerLogin();
 });
 
-<<<<<<< HEAD
-
 pswField.addEventListener("change", function () {
   triggerLogin();
 });
-=======
+
 pswField.addEventListener("submit", function () {
   triggerLogin();
 });
->>>>>>> de2f2e6 (hopefully fixed if statement)
