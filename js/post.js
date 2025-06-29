@@ -16,12 +16,12 @@ console.log(cookieObject);
 async function setPostInner() {
   let response = await fetch(
     `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
-    requestOptions
-  )
+    requestOptions,
+  );
   if (!response.ok) {
-    throw new Error("Network response was not ok")
+    throw new Error("Network response was not ok");
   }
-  text.innerHTML = await response.text()
+  text.innerHTML = await response.text();
 }
 
 export async function reloadPost() {
@@ -39,14 +39,13 @@ export async function reloadPost() {
       console.log(data);
 
       if (data.response_type == "impostor") {
-        text.style.background = "red";;
+        text.style.background = "red";
       } else {
         text.style.background = "white";
       }
-      setPostInner()
+      setPostInner();
 
-
-      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
+      author.innerHTML = `Written by <a href="/user.html?uuid=${data.author.uuid}">@${data.author.handle}</a>`;
 
       loadComments(data.comments);
 
@@ -143,8 +142,7 @@ async function getPost() {
         text.innerHTML = data.content;
       }
 
-      
-      author.innerHTML = `Written by <a href="/user?uuid=${data.author.uuid}">@${data.author.name}</a>`;
+      author.innerHTML = `Written by <a href="/user.html?uuid=${data.author.uuid}">@${data.author.handle}</a>`;
 
       loadComments(data.comments);
     })
@@ -204,16 +202,15 @@ async function loadComments(commentUuids) {
 
         var comment = document.createElement("div");
 
-
         let response = await fetch(
           `https://impostors.api.pauljako.de/api/v1/comment/${comment_uuid}`,
-          requestOptions
-        )
+          requestOptions,
+        );
         if (!response.ok) {
-          throw new Error("Network response was not ok")
+          throw new Error("Network response was not ok");
         }
-        commentHTML = await response.text()
-        
+        commentHTML = await response.text();
+
         comment.innerHTML = `
           <div class="comment">
             <br>
