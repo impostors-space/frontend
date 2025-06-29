@@ -140,7 +140,7 @@ async function getPost() {
 export function vote(comment_uuid, value) {
   var upvoteRequestOptions = {
     method: "PUT",
-    headers: cookieObject["headers"],
+    headers: new cookieObject["headers"](),
     body: value,
   };
 
