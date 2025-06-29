@@ -13,9 +13,9 @@ var requestOptions = {
 
 console.log(cookieObject);
 
-async function setPostInner() {
+async function setPostInner(uuid) {
   let response = await fetch(
-    `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}/html`,
+    `https://impostors.api.pauljako.de/api/v1/post/${uuid}/html`,
     requestOptions,
   );
   if (!response.ok) {
@@ -25,6 +25,7 @@ async function setPostInner() {
 }
 
 export async function reloadPost() {
+  console.log(currentPostId)
   await fetch(
     `https://impostors.api.pauljako.de/api/v1/post/${currentPostId}`,
     requestOptions,
@@ -38,12 +39,13 @@ export async function reloadPost() {
     .then((data) => {
       console.log(data);
 
+
       if (data.response_type == "impostor") {
         text.style.background = "red";
       } else {
         text.style.background = "white";
       }
-      setPostInner();
+      setPostInner(data.uuid);
 
       author.innerHTML = `Written by <a href="/user.html?uuid=${data.author.uuid}">@${data.author.handle}</a>`;
 
@@ -140,7 +142,7 @@ async function getPost() {
         text.style.background = "white";
       }
 
-      setPostInner();
+      setPostInner(data.uuid);
 
       author.innerHTML = `Written by <a href="/user.html?uuid=${data.author.uuid}">@${data.author.handle}</a>`;
 
