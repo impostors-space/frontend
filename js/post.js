@@ -209,7 +209,7 @@ async function loadComments(commentUuids) {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        commentHTML = await response.text();
+        let commentHTML = await response.text();
 
         comment.innerHTML = `
           <div class="comment">
