@@ -80,6 +80,6 @@ submitButton.addEventListener("click", function () {
 });
 
 
-pswField.addEventListener("submit", function () {
+pswField.addEventListener("change", function () {
   triggerLogin();
-})
+});
