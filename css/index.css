@@ -2,3 +2,9 @@
   margin-top: 5%;
   font-size: 400%;
 }
+.play-button {
+  white-space: nowrap;
+}
+.headbar {
+  white-space: nowrap;
+}
