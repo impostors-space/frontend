@@ -70,6 +70,8 @@ function triggerLogin() {
   var pswField = document.getElementById("psw-field");
 
   login(unameField.value, pswField.value);
+
+  window.location = "/post.html";
 }
 
 submitButton.addEventListener("click", function () {
