@@ -65,9 +65,13 @@ function logout() {
   location.href = "index.html";
 }
 
-submitButton.addEventListener("click", function () {
+function triggerLogin() {
   var unameField = document.getElementById("uname-field");
   var pswField = document.getElementById("psw-field");
 
   login(unameField.value, pswField.value);
+}
+
+submitButton.addEventListener("click", function () {
+  triggerLogin();
 });
