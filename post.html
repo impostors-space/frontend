@@ -1,43 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta charset="utf8">
+        <meta charset="UTF-8" />
         <title>Posts | Impostor, a new type of social media</title>
-        <link rel="stylesheet" href="css/post.css">
-        <link rel="icon" type="image/x-icon" href="assets/icon.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="css/post.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="icon" type="image/x-icon" href="assets/icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
         <div class="headbar">
-            <img src="assets/icon.png" alt="icon">
-            <div id="headText"> <a href="https://www.1w6.org/"><a href="index.html">Impostor </a></a>| a new type of social media</div>
-            <button id="play-button">Sign in or register &#8594</button>
-            
+            <img src="assets/icon.png" alt="icon" />
+            <div id="headText">
+                <a href="/">Impostor </a>| a new type of social media
+            </div>
+            <a id="play-button" class="play-button" href="createpost.html">create content&#8594</a>
         </div>
-        <br>
-        <button onclick="" id="previousButton">&#8679</button>
+        <br />
         <div id="post">
             <div id="content">
-                <div id="text">
-                    here ist the initial text/word
-                    <br>
-                    
-                </div>
-                Up and downvote
-                    <br>
-                    <div id="Buttons">
-                    <button id="up">&#10004</button>
-                    <button id="down">&#10006</button>
-                    </div>
-                <div id="comments">
+                <h4 id="text">(Post Content)</h4>
+                <br />
+                <h5 id="author">(Post Author)</h5>
+                <p style="text-align: left">Comments:</p>
+                <div id="comments"></div>
+                <div id="write_comment">
                     You can comment here:
-                    <br>
-                    <input type="text">
-                </div>
+                    <br />
+                    <input type="text" id="commentField" />
+                    <br />
+                    <button id="commentButton">Comment</button>
                 </div>
             </div>
-            
-            <button onclick=""   id="nextButton">&#8681</button>
-        </body>
-        <script type="module" src="js/post.mjs"></script>
+        </div>
+        <button onclick="" id="nextButton">&#8681;</button>
+    </body>
+    <script type="module" src="js/post.js"></script>
 </html>
