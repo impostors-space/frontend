@@ -78,10 +78,6 @@ submitButton.addEventListener("click", function () {
   triggerLogin();
 });
 
-pswField.addEventListener("change", function () {
-  triggerLogin();
-});
-
 pswField.addEventListener("submit", function () {
   triggerLogin();
 });
