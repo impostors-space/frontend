@@ -31,7 +31,7 @@ body {
     font-size: 25px;
     background-image: linear-gradient(to right, rgb(188, 0, 0), rgb(255, 0, 0));
     white-space: nowrap;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .head-text {
