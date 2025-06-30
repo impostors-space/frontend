@@ -3,7 +3,7 @@
   font-size: 400%;
 }
 .play-button {
-  white-space: nowrap;
+  white-space: pre;
 }
 .headbar {
   white-space: nowrap;
