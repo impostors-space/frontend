@@ -1,10 +1,24 @@
-#Headline {
-  margin-top: 5%;
-  font-size: 400%;
-}
 .play-button {
-  white-space: nowrap;
+    margin: 10px;
+    justify-content: right;
+    width: 100%;
+    text-align: right;
 }
-.headbar {
-  white-space: nowrap;
+
+.content {
+    width: 100%;
+    padding: 25px;
+    overflow: hidden;
+}
+
+@media (orientation: landscape) {
+    .content {
+        text-align: right;
+    }
+}
+
+@media (orientation: portrait) {
+    .content {
+        text-align: center;
+    }
 }
