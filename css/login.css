@@ -1,4 +1,25 @@
-#submit-button{
+#submit-button {
     margin-top: 1%;
     margin-bottom: 1%;
+}
+
+.container {
+    margin-top: 70px;
+    text-align: center;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    background: rgba(190, 190, 190, 0.75);
+}
+
+@media (orientation: landscape) {
+    .container {
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+}
+
+@media (orientation: portrait) {
+    .container {
+        width: 100%;
+    }
 }
