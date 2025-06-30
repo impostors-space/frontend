@@ -32,7 +32,7 @@ async function login(uname, psw) {
     method: "PUT",
   };
 
-  fetch(
+  await fetch(
     apiURL +
       "auth/signup?" +
       new URLSearchParams({
@@ -55,8 +55,7 @@ async function login(uname, psw) {
         cookieObject.uname + ":" + cookieObject.pswHash;
       ((cookieObject.headers.Authorization = `Basic ${btoa(afterBasicPreAuthString)}`),
         console.log(cookieObject));
-      document.cookie = "data=" + btoa(JSON.stringify(cookieObject));
-      location.href = "login.html";
+      document.cookie = "data=" + btoa(JSON.stringify(cookieObject)) + ";";
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -68,10 +67,10 @@ function logout() {
   location.href = "index.html";
 }
 
-function triggerLogin() {
-  login(unameField.value, pswField.value);
+async function triggerLogin() {
+  await login(unameField.value, pswField.value);
 
-  window.location = "/post.html";
+  location.href = "/post.html";
 }
 
 submitButton.addEventListener("click", function () {
@@ -81,3 +80,5 @@ submitButton.addEventListener("click", function () {
 pswField.addEventListener("submit", function () {
   triggerLogin();
 });
+
+window.logout = logout;
