@@ -43,7 +43,7 @@ async function login(uname, psw) {
     requestOptions,
   )
     .then((response) => {
-      if (!response.ok && response != 409) {
+      if (!response.ok && response.status != 409) {
         throw new Error("Network response was not ok");
       }
       return response.json();
@@ -53,8 +53,8 @@ async function login(uname, psw) {
       cookieObject.displayName = data.displayName;
       var afterBasicPreAuthString =
         cookieObject.uname + ":" + cookieObject.pswHash;
-      (cookieObject.headers.Authorization = `Basic ${btoa(afterBasicPreAuthString)}`),
-        console.log(cookieObject);
+      ((cookieObject.headers.Authorization = `Basic ${btoa(afterBasicPreAuthString)}`),
+        console.log(cookieObject));
       document.cookie = "data=" + btoa(JSON.stringify(cookieObject));
       location.href = "login.html";
     })
