@@ -39,10 +39,6 @@ a:visited {
     color: #000;
 }
 
-@font-face {
-    font-family: "Font1";
-    src: url("../assets/IBMPlexSansJP-Bold.ttf");
-}
 
 body {
     background-image: url("../assets/background.jpg");
