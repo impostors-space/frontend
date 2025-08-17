@@ -13,7 +13,7 @@ async function createPost(content) {
       return response.json();
     })
     .then((data) => {
-      location.href = "/post.html";
+      location.href = "post.html";
 
       console.log(data);
     })

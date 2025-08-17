@@ -70,7 +70,7 @@ function logout() {
 async function triggerLogin() {
   await login(unameField.value, pswField.value);
 
-  location.href = "/post.html";
+  location.href = "post.html";
 }
 
 submitButton.addEventListener("click", function () {
